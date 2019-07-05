@@ -1,0 +1,2 @@
+# disccordEZbot
+bot
