@@ -1,7 +1,7 @@
 import random
 
 data=[]
-nowseek=0
+
 def says():    
     with open('ar.txt','r') as r:
         line = r.read().split(",")
@@ -12,9 +12,13 @@ def says():
     return temp
 
 def learning(learn_what):
-    with open('ar.txt','a') as w:        
-        w.write(f',{learn_what}')
-        w.close()
+    says()
+    with open('ar.txt','a') as w:
+        if learn_what not in data:     
+            w.write(f',{learn_what}')
+            w.close()
+        else:
+            return "小看我?????"
     return "succsess"
 
 if __name__ == "__main__":

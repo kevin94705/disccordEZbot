@@ -100,5 +100,7 @@ def whichboss(w,h,m):
                 return '00:15 肯恩特、木拉卡'
             else:
                 return '23:30 奧平'
+
+
 if __name__ == "__main__":
     print(whichboss('Sun',14,38))
