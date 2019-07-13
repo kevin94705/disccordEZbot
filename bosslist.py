@@ -1,6 +1,8 @@
 import time 
+import datetime
 
-def whichboss(w,h,m): 
+
+def whichboss(w,h,m):
     if w=='Mon':        
         if (h==0)and(m<=15):
             return '00:15 肯恩特、木拉卡'
@@ -100,7 +102,30 @@ def whichboss(w,h,m):
                 return '00:15 肯恩特、木拉卡'
             else:
                 return '23:30 奧平'
-
+def distance(h,m,h1,m1):
+    if h1-h<0:
+        if h==0:
+            h=24            
+        if h1==0:
+            h1=24
+        if h1<h:
+            h1+=24        
+        if m1-m<0:
+            h1-=1
+            m1+=60        
+        dh=abs(h1-h)
+        dm=abs(m1-m)
+        return dh,dm
+    else:
+        if m1-m<0 and h1-h>=0:
+            h1-=1
+            m1+=60
+        dh=abs(h1-h)
+        dm=abs(m1-m)
+        return dh,dm
 
 if __name__ == "__main__":
-    print(whichboss('Sun',14,38))
+    print(distance(23,35,2,00))
+    print(distance(23,35,00,15))
+    print(distance(23,22,23,30))
+    print(distance(18,32,19,00))

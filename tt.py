@@ -35,16 +35,16 @@ async def _boss(ctx):
     dayOfWeek=time.strftime("%a", time.localtime())
     dayOfmin=int(time.strftime("%M",time.localtime()))
     ans=bosslist.whichboss(dayOfWeek,dayOfhour,dayOfmin)
-    print(dayOfWeek,dayOfhour,dayOfmin)
+    print(dayOfWeek,dayOfhour,dayOfmin)    
     standtime=ans.find(':')
     hourtime=int(ans[0:standtime])
-    minstime=int(ans[standtime+1:standtime+3])   
-    tttt=abs(hourtime-dayOfhour)
-    ttttt=abs(dayOfmin-minstime)
-    print(hourtime)
-    print(minstime)
-    await ctx.send(f'{ans} 還有{tttt}小時{ttttt}分')
-
+    minstime=int(ans[standtime+1:standtime+3]) 
+    bosslist.distance(dayOfhour,dayOfmin,hourtime,minstime)
+    h1=bosslist.distance(dayOfhour,dayOfmin,hourtime,minstime)[0]
+    m1=bosslist.distance(dayOfhour,dayOfmin,hourtime,minstime)[1]
+    
+    await ctx.send(f'{ans}\n 還有{h1}小時{m1}分')
+    #
     
 @client.command()
 async def ar(ctx,*,lear=None):
