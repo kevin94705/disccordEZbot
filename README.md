@@ -1,2 +1,2 @@
 # disccordEZbot
-bot
+tt是MAIN
