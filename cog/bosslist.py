@@ -1,6 +1,6 @@
 import time 
 import datetime
-
+import discord
 from discord.ext import commands
 
 class boss(commands.Cog):
@@ -8,7 +8,7 @@ class boss(commands.Cog):
         self.bot = bot
 
     @commands.command(aliases=['等下甚麼王','nextboss','boss'])
-    async def _boss(self,ctx):
+    async def _boss(self,ctx,*,all=None):
         dayOfhour=int(time.strftime("%H", time.localtime()))
         dayOfWeek=time.strftime("%a", time.localtime())
         dayOfmin=int(time.strftime("%M",time.localtime()))
@@ -20,8 +20,11 @@ class boss(commands.Cog):
         
         h1=self.distance(dayOfhour,dayOfmin,hourtime,minstime)[0]
         m1=self.distance(dayOfhour,dayOfmin,hourtime,minstime)[1]
-        
-        await ctx.send(f'{ans}\n 還有{h1}小時{m1}分')
+        if all==None:
+            await ctx.send(f'下一隻 {ans}\n 還有{h1}小時{m1}分')
+        else:
+            await ctx.send(f'下一隻 {ans}\n 還有{h1}小時{m1}分')
+            await ctx.send(file=discord.File('C:\\disbot\\allbosslist.png'))
     def whichboss(self,w,h,m):
         if w=='Mon':        
             if (h==0)and(m<=15):
@@ -114,7 +117,7 @@ class boss(commands.Cog):
             elif 2<=h<11:
                 return '11:00 克價卡、羅裴勒'
             elif 11<=h<15:
-                return '15:00 貝爾 \n 14.30漁村出發逾時不候'
+                return '15:00 貝爾 \n14.30漁村出發逾時不候'
             elif 15<=h<19:
                 return '19:00 卡嵐達、庫屯'
             elif 19<=h<=23:            
