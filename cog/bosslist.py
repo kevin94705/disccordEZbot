@@ -1,14 +1,17 @@
 import time 
 import datetime
 import discord
+import os
 from discord.ext import commands
 
 class boss(commands.Cog):
     def __init__(self,bot:commands.Bot):        
         self.bot = bot
 
-    @commands.command(aliases=['等下甚麼王','nextboss','boss'])
+    @commands.command(aliases=['等下甚麼王','nextboss','boss','BOSS'])
     async def _boss(self,ctx,*,all=None):
+        work_path = os.getcwd()
+        boss_png= os.path.join(work_path,'allbosslist.png')
         dayOfhour=int(time.strftime("%H", time.localtime()))
         dayOfWeek=time.strftime("%a", time.localtime())
         dayOfmin=int(time.strftime("%M",time.localtime()))
@@ -20,11 +23,11 @@ class boss(commands.Cog):
         
         h1=self.distance(dayOfhour,dayOfmin,hourtime,minstime)[0]
         m1=self.distance(dayOfhour,dayOfmin,hourtime,minstime)[1]
-        if all==None:
-            await ctx.send(f'下一隻 {ans}\n 還有{h1}小時{m1}分')
+        if all==None:            
+            await ctx.send('下一隻 {ans}\n還有{h1}小時{m1}分'.format(ans=ans,h1=h1,m1=m1))
         else:
-            await ctx.send(f'下一隻 {ans}\n 還有{h1}小時{m1}分')
-            await ctx.send(file=discord.File('C:\\disbot\\allbosslist.png'))
+            await ctx.send('下一隻 {ans}\n還有{h1}小時{m1}分'.format(ans=ans,h1=h1,m1=m1))
+            await ctx.send(file=discord.File(boss_png))
     def whichboss(self,w,h,m):
         if w=='Mon':        
             if (h==0)and(m<=15):

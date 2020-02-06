@@ -30,7 +30,7 @@ class ARmod(commands.Cog):
         self.says() #讓data內有讀取TXT的資料
         with open('ar.txt','a') as w:
             if learn_what not in data:     
-                w.write(f',{learn_what}')
+                w.write(',{learn_what}'.format(learn_what=learn_what))
                 w.close()
             else:
                 return "小看我?????早就會了"
