@@ -1,3 +1,4 @@
+#coding=utf-8
 import os
 import random
 from discord.ext import commands
@@ -18,7 +19,7 @@ class ARmod(commands.Cog):
             await ctx.send(arsays)   
 
     def says(self):    
-        with open('ar.txt','r') as r:
+        with open('ar.txt','r',encoding='utf-8') as r:
             line = r.read().split(",")
             for i in  line:
                 data.append(i)
@@ -28,7 +29,7 @@ class ARmod(commands.Cog):
 
     def learning(self,learn_what):
         self.says() #讓data內有讀取TXT的資料
-        with open('ar.txt','a') as w:
+        with open('ar.txt','a',encoding='utf-8') as w:
             if learn_what not in data:     
                 w.write(',{learn_what}'.format(learn_what=learn_what))
                 w.close()

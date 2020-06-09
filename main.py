@@ -1,3 +1,4 @@
+#coding=utf-8
 import discord
 import time
 import os
@@ -46,7 +47,7 @@ async def on_message(message):
 
 if __name__ == '__main__':
     bot.add_cog(games.Games(bot))        #加入discord bot的cog
-    bot.add_cog(armod.ARmod(bot))
+    #bot.add_cog(armod.ARmod(bot))
     bot.add_cog(bosslist.boss(bot))
     bot.add_cog(helps.helps(bot))
     bot.add_cog(search_cook.cook(bot))
