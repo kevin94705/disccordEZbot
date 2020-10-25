@@ -53,7 +53,7 @@ class boss(commands.Cog):
             elif 11<=h<15:
                 return '15:00 卡蘭達、羅裴勒'
             elif 15<=h<19:
-                return '19:00 庫屯'
+                return '19:00 貝爾'
             elif 19<=h<=23:
                 if h==23 and m>30:
                     return '2:00 卡蘭達'
@@ -91,7 +91,7 @@ class boss(commands.Cog):
             if 0<=h<2:
                 return '2:00 克價卡、羅裴勒'
             elif 2<=h<11:
-                return '11:00 奧平'
+                return '11:00 奧平、庫屯'
             elif 11<=h<15:
                 return '15:00 羅裴勒、卡蘭達'
             elif 15<=h<19:
