@@ -1,6 +1,7 @@
 # disccordEZbot
 功能:
   command:
+  
     .roll 
         1-6隨機數字
         
